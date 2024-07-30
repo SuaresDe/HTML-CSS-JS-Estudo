@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de D20</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+        }
+        p {
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simulador de D20</h1>
+    <button onclick="rolarD20()">Lançar D20</button>
+    <p id="result">Clique no botão para lançar o dado.</p>
+
+    <script>
+        function rolarD20() {
+            const result = Math.floor(Math.random() * 20) + 1;
+            
+            document.getElementById('result').innerText = `Rolou ${result}!`;
+        }
+    </script>
+</body>
+</html>
