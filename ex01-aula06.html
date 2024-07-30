@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensagem de Boas-Vindas</title>
+    <style>
+        #welcomeMessage {
+            margin-top: 20px;
+            padding: 10px;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            background-color: #e8f5e9;
+            color: #388e3c;
+            font-size: 1.2em;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <label for="nameInput">Digite seu nome:</label>
+    <input type="text" id="nameInput" placeholder="Seu nome aqui">
+    <button onclick="welcomeUser()">Enviar</button>
+    <div id="welcomeMessage"></div>
+
+    <script>
+        function welcomeUser() {
+            var name = document.getElementById('nameInput').value;
+
+            if (name.trim() === '') {
+                alert('Por favor, digite um nome!');
+                return;
+            }
+
+            var message = 'Bem-vindo, ' + name + '!';
+
+            console.log(message);
+
+            document.getElementById('welcomeMessage').innerText = message;
+        }
+    </script>
+</body>
+</html>
