@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palíndromo</title>
+    <style>
+        /* Adicione estilos se necessário */
+    </style>
+</head>
+<body>
+    <h1>Verificar Palíndromo</h1>
+    <label for="checkPalindromo">Digite uma string para verificar se é um palíndromo:</label>
+    <input type="text" id="checkPalindromo" placeholder="String">
+
+    <button onclick="verificarPalindromo()">Verificar</button>
+
+    <script> 
+        function verificarPalindromo() {
+            // Obter o valor do campo de entrada
+            var inputCheckPalindromo = document.getElementById('checkPalindromo').value;
+            
+            // Limpar e transformar a string
+            var CleanCheckPalindromo = inputCheckPalindromo.replace(/\s/g, '').toLowerCase();
+            
+            // Inverter a string
+            var reverseInputCheckPalindromo = CleanCheckPalindromo.split('').reverse().join('');
+           
+            // Verificar se a string é um palíndromo
+            if (CleanCheckPalindromo === reverseInputCheckPalindromo) {
+                alert('É um palíndromo');
+            } else {
+                alert('Não é um palíndromo');
+            }
+        }
+    </script>
+</body>
+</html>
