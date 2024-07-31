@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Removedor de Números Repetidos</title>
+</head>
+<body>
+    <h1>Removedor de Números Repetidos</h1>
+
+    <label for="inputArray">Digite números separados por vírgula:</label>
+    <input type="text" id="inputArray" placeholder="Ex: 1, 2, 2, 3, 4, 4, 5">
+    <button onclick="removerNumerosRepetidos()">Remover Duplicados</button>
+
+    <script>
+        function removerNumerosRepetidos() {
+            var inputArray = document.getElementById('inputArray').value;
+            
+            var array = inputArray.split(',').map(num => parseFloat(num.trim()));
+            
+            var conjuntoUnico = new Set(array);
+            
+            var arraySemDuplicados = [...conjuntoUnico];
+            
+            alert('Array sem duplicados: ' + arraySemDuplicados.join(', '));
+        }
+    </script>
+</body>
+</html>
