@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Carro</title>
+    <script src="cadastrarCarro.js" defer></script>
+</head>
+<body>
+    <form id="formularioCarro">
+        <h1>Cadastro de Carros</h1>
+
+        <label for="idCarro">ID:</label>
+        <input type="text" id="idCarro" name="idCarro" readonly placeholder="ID (gerado)">
+
+        <br><br>
+
+        <label for="fabricanteCarro">Marca:</label>
+        <input type="text" id="fabricanteCarro" name="fabricanteCarro" placeholder="Marca do carro">
+
+        <br><br>
+
+        <label for="modeloCarro">Modelo:</label>
+        <input type="text" id="modeloCarro" name="modeloCarro" placeholder="Modelo do carro">
+
+        <br><br>
+
+        <label for="corCarro">Cor:</label>
+        <input type="text" id="corCarro" name="corCarro" placeholder="Cor do carro">
+
+        <br><br>
+
+        <label for="anoCarro">Ano:</label>
+        <input type="number" id="anoCarro" name="anoCarro" placeholder="Ano do carro">
+        
+        <br><br>
+
+        <button type="button" onclick="cadastrarCarro()">Cadastrar</button>
+    </form>
+</body>
+</html>
