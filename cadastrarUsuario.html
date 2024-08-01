@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Usuario</title>
+    <script src="cadastrarUsuario.js"></script>
+</head>
+<body>
+    <form id="cadastroUsuario">
+        <h1>Cadastro:</h1>
+
+
+        <label for="nomeUsuario">Nome:</label>
+        <input type="text" id="nomeUsuario" name="nomeUsuario" placeholder="Nome" required>
+
+        <br><br>
+
+        <label for="emailUsuario">E-mail:</label>
+        <input type="email" id="emailUsuario" name="emailUsuario" placeholder="E-mail" required>
+
+        <br><br>
+
+        <label for="senhaUsuario">Senha:</label>
+        <input type="password" id="senhaUsuario" name="senhaUsuario" placeholder="Senha" required>
+
+        
+        <br><br>
+
+        <label for="nascimentoUsuario">Data de nascimento:</label>
+        <input type="date" id="nascimentoUsuario" name="nascimentoUsuario" required>
+
+        <br><br>
+
+        <button type="submit" onclick="cadastrarUsuario()">Cadastrar</button>
+        
+    </form>
+
+
+    <br><br><br>
+    <button type="button" onclick="exibirUsuarios()">Exibir Usuários</button>
+    <h2>Usuários Cadastrados:</h2>
+    <ul id="listaUsuarios"></ul> 
+</body>
+</html>
