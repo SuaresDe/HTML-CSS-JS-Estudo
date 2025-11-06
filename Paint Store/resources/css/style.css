@@ -1,0 +1,474 @@
+/* ---------------------------------- */
+/* 1. Variáveis Globais e Resets */
+/* ---------------------------------- */
+:root {
+  --primary-color: #ff8000;
+  --light-border: #e6e6e6;
+  --dark-text: rgba(0, 0, 0, 0.7);
+  --white-text: #ffffff;
+}
+
+/* Universal Styles */
+html {
+  font-size: 16px;
+  /* Faz com que padding e bordas contem *dentro* da largura/altura do elemento */
+  box-sizing: border-box;
+}
+
+/* Faz todos os outros elementos herdarem esse box-sizing */
+*, *:before, *:after {
+  box-sizing: inherit;
+  margin: 0; /* Um reset simples */
+  padding: 0; /* Um reset simples */
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: #f9f9f9; /* Um cinza bem claro faz elementos brancos se destacarem */
+  
+  /* Suavização de fonte */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+strong {
+  font-weight: bold;
+}
+
+.image-container {
+  overflow: hidden;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.image-container img {
+  display: block;
+  max-width: 100%;
+}
+
+@media only screen and (max-width: 990px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/* ---------------------------------- */
+/* 2. Header */
+/* ---------------------------------- */
+header {
+  display: flex;
+  align-items: center;
+  padding: .5rem 3.75rem;
+  background-color: var(--primary-color);
+  /* Sombra sutil para "elevar" o header da página */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+header .logo-small {
+  display: none;
+}
+
+header .logo-small,
+header .logo-big {
+  flex-grow: 1;
+}
+
+nav li {
+  display: inline;
+  padding-right: 2rem;
+  position: relative; /* Necessário para o efeito de sublinhado */
+}
+
+nav li:last-child {
+  padding-right: 0;
+}
+
+/* Efeito de hover nos links da navegação */
+nav li a {
+  transition: color 0.3s ease;
+}
+
+nav li a:hover {
+  color: var(--dark-text);
+}
+
+/* Efeito de sublinhado animado (Opcional, mas bonito) */
+nav li a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px; /* Posiciona a linha abaixo do texto */
+  left: 0;
+  width: 100%; /* Começa com 100% da largura do <li>, ajuste se necessário */
+  height: 2px;
+  background-color: var(--dark-text);
+  
+  transform: scaleX(0); /* Começa escondido */
+  transform-origin: left;
+  transition: transform 0.3s ease-out;
+}
+
+/* Se o seu <a> não preencher o <li>, você pode querer aplicar isso no <li> */
+nav li:hover a::after {
+  transform: scaleX(1); /* Anima ao passar o mouse */
+}
+
+
+@media only screen and (max-width: 990px) {
+  header .logo-big {
+    display: none;
+  }
+
+  header .logo-small {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  header {
+    flex-direction: column;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  header .logo-small {
+    margin-bottom: 1rem;
+  }
+}
+
+/* ---------------------------------- */
+/* 3. Banner */
+/* ---------------------------------- */
+#banner {
+  position: relative;
+  height: 43.75rem;
+  padding: 0 25%;
+  background: url(" https://content.codecademy.com/courses/freelance-1/unit-6/banner.png") center center no-repeat;
+  background-size: cover;
+  text-align: center;
+}
+
+#banner:before { /* Orange Overlay */
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 128, 0, 0.75)
+}
+
+#banner * {
+  position: relative; /* Faz elementos aparecerem acima do overlay. */
+}
+
+h1 {
+  padding-top: 10.4375rem;
+  padding-bottom: 1.25rem;
+  font-family: "Creepster", cursive;
+  font-size: 8rem;
+  color: var(--dark-text);
+}
+
+#banner p {
+  color: var(--white-text);
+  line-height: 1.5;
+  font-size: 1.375rem;
+}
+
+@media only screen and (max-width: 820px) {
+  h1 {
+    padding-top: 7rem;
+    font-size: 6rem;
+  }
+}
+
+@media only screen and (max-width: 590px) {
+  h1 {
+    font-size: 4rem;
+  }
+}
+
+/* ---------------------------------- */
+/* 4. Color Guide */
+/* ---------------------------------- */
+#color-guide {
+  padding: 3.875rem 15% 13.5rem 15%;
+}
+
+#color-guide .introduction {
+  padding: 0 10%;
+  margin-bottom: .75rem;
+  text-align: center;
+  font-size: 1.375rem;
+  line-height: 1.4;
+}
+
+#color-guide h2 {
+  margin-bottom: 2.4375rem;
+  line-height: 1;
+  font-size: 2rem;
+  color: var(--primary-color);
+}
+
+#color-guide .color {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 5.25rem;
+}
+
+.color .information {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 35%;
+}
+
+.color .information h3 {
+  padding-bottom: .5rem;
+  font-size: 1.375rem;
+  font-weight: bold;
+}
+
+.color .information p {
+  font-size: .875rem;
+  line-height: 1.4;
+}
+
+.color .swatches {
+  width: 60%;
+}
+
+.color .swatches h4 {
+  margin-bottom: 1.25rem;
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+
+/* A MÁGICA DOS SWATCHES */
+.color .swatch {
+  display: flex;
+  height: 6.6875rem;
+  border: 0;
+  margin-bottom: 1.25rem;
+ 
+ /* MELHORIAS */
+  border-radius: 8px; /* Cantos suaves */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra sutil */
+  overflow: hidden; /* Garante que o radius corte os divs internos */
+  
+  /* A linha 'transition' FOI REMOVIDA DAQUI */
+}
+
+/* A REGRA '.color .swatch:hover' FOI COMPLETAMENTE APAGADA */
+
+.color .swatch:last-child {
+  margin-bottom: 0;
+}
+
+.color .swatch > div {
+  flex-grow: 1;
+  border: 0;
+  
+  /* --- CÓDIGO NOVO ADICIONADO ABAIXO --- */
+  position: relative; /* Necessário para o z-index funcionar */
+  z-index: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* --- REGRA NOVA ADICIONADA ABAIXO --- */
+.color .swatch > div:hover {
+  transform: scale(1.15) translateY(-5px); /* Aumenta mais para ficar óbvio */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
+  z-index: 10; /* Garante que o bloco pule na FRENTE dos vizinhos */
+}
+
+.color .swatch > div:last-child {
+  border-right: 0;
+}
+
+/* Corrige os cantos arredondados nos divs internos */
+.color .swatch > div:first-child {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.color .swatch > div:last-child {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+
+@media only screen and (max-width: 820px) {
+  #color-guide .color {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .color .information {
+    width: 100%;
+    margin-bottom: 3rem;
+    align-items: center;
+  }
+
+  .color .information h3 {
+    padding-bottom: 1.5rem;
+  }
+
+  .color .information p {
+    margin-bottom: 2rem;
+  }
+
+  .color .swatches {
+    width: 100%;
+  }
+}
+
+/* ---------------------------------- */
+/* 5. Definições de Cor (Swatches) */
+/* ---------------------------------- */
+
+/* Red Swatches */
+.reds .base-color {
+  color: hsl(350, 100%, 50%);
+}
+.reds .lightness .color-1 { background-color: hsl(350, 100%, 80%); }
+.reds .lightness .color-2 { background-color: hsl(350, 100%, 65%); }
+.reds .lightness .color-3 { background-color: hsl(350, 100%, 50%); }
+.reds .lightness .color-4 { background-color: hsl(350, 100%, 35%); }
+.reds .lightness .color-5 { background-color: hsl(350, 100%, 20%); }
+.reds .saturation .color-1 { background-color: hsl(350, 100%, 50%); }
+.reds .saturation .color-2 { background-color: hsl(350, 85%, 50%); }
+.reds .saturation .color-3 { background-color: hsl(350, 70%, 50%); }
+.reds .saturation .color-4 { background-color: hsl(350, 55%, 50%); }
+.reds .saturation .color-5 { background-color: hsl(350, 40%, 50%); }
+.reds .hue .color-1 { background-color: hsl(320, 100%, 50%); }
+.reds .hue .color-2 { background-color: hsl(335, 100%, 50%); }
+.reds .hue .color-3 { background-color: hsl(350, 100%, 50%); }
+.reds .hue .color-4 { background-color: hsl(5, 100%, 50%); }
+.reds .hue .color-5 { background-color: hsl(20, 100%, 50%); }
+
+/* Green Swatches */
+.greens .base-color {
+  color: hsl(130, 100%, 50%);
+}
+.greens .lightness .color-1 { background-color: hsl(103, 100%, 90%); }
+.greens .lightness .color-2 { background-color: hsl(103, 100%, 70%); }
+.greens .lightness .color-3 { background-color: hsl(103, 100%, 50%); }
+.greens .lightness .color-4 { background-color: hsl(103, 100%, 30%); }
+.greens .lightness .color-5 { background-color: hsl(104, 100%, 10%); }
+.greens .saturation .color-1 { background-color: hsl(130, 100%, 50%); }
+.greens .saturation .color-2 { background-color: hsl(130, 80%, 50%); }
+.greens .saturation .color-3 { background-color: hsl(130, 60%, 50%); }
+.greens .saturation .color-4 { background-color: hsl(130, 40%, 50%); }
+.greens .saturation .color-5 { background-color: hsl(131, 20%, 50%); }
+.greens .hue .color-1 { background-color: hsl(86, 100%, 50%); }
+.greens .hue .color-2 { background-color: hsl(108, 100%, 50%); }
+.greens .hue .color-3 { background-color: hsl(130, 100%, 50%); }
+.greens .hue .color-4 { background-color: hsl(152, 100%, 50%); }
+.greens .hue .color-5 { background-color: hsl(174, 100%, 50%); }
+
+
+
+/* Blue Swatches */
+.blues .base-color {
+  color: hsl(220, 100%, 50%);
+}
+.blues .lightness .color-1 { background-color: hsl(220, 100%, 90%); }
+.blues .lightness .color-2 { background-color: hsl(220, 100%, 70%); }
+.blues .lightness .color-3 { background-color: hsl(220, 100%, 50%); }
+.blues .lightness .color-4 { background-color: hsl(220, 100%, 30%); }
+.blues .lightness .color-5 { background-color: hsl(220, 100%, 10%); }
+.blues .saturation .color-1 { background-color: hsl(220, 100%, 50%); }
+.blues .saturation .color-2 { background-color: hsl(220, 80%, 50%); }
+.blues .saturation .color-3 { background-color: hsl(220, 60%, 50%); }
+.blues .saturation .color-4 { background-color: hsl(220, 40%, 50%); }
+.blues .saturation .color-5 { background-color: hsl(220, 20%, 50%); }
+.blues .hue .color-1 { background-color: hsl(260, 100%, 50%); }
+.blues .hue .color-2 { background-color: hsl(240, 100%, 50%); }
+.blues .hue .color-3 { background-color: hsl(220, 100%, 50%); }
+.blues .hue .color-4 { background-color: hsl(200, 100%, 50%); }
+.blues .hue .color-5 { background-color: hsl(180, 100%, 50%); }
+
+/* ---------------------------------- */
+/* 6. Footer */
+/* ---------------------------------- */
+footer {
+  position: relative;
+  height: 30rem;
+  padding: 7.8125rem 30% 0 30%;
+  background: url("https://content.codecademy.com/courses/freelance-1/unit-6/footer.png") center center no-repeat;
+  background-size: cover;
+  text-align: center;
+  font-size: 1.125rem;
+  line-height: 1.4;
+  color: var(--dark-text);
+}
+
+footer:before { /* Overlay - CORRIGIDO */
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  /* Adiciona um overlay escuro para legibilidade */
+  background-color: rgba(0, 0, 0, 0.5); 
+  /* Se o texto original for escuro, talvez queira um overlay claro: */
+  /* background-color: rgba(255, 255, 255, 0.5); */
+}
+
+footer * {
+  position: relative; /* Faz elementos aparecerem acima do overlay. */
+}
+
+footer strong {
+  display: block;
+  margin-bottom: 1.25rem;
+  font-size: 2.25rem;
+  color: white;
+}
+
+footer p {
+  margin-bottom: 4.3125rem;
+  color: white;
+}
+
+/* BOTÃO MELHORADO */
+footer .button {
+  padding: 1.25rem 3.75rem;
+  border-radius: 4px;
+  background-color: var(--primary-color);
+  color: var(--white-text); /* Garante que o texto do botão seja branco/legível */
+  
+  /* MELHORIAS */
+  display: inline-block; /* Boa prática para links "botão" */
+  box-shadow: 0 4px 10px rgba(255, 128, 0, 0.3); /* Sombra da cor do botão */
+  transition: all 0.3s ease; /* Anima tudo */
+}
+
+footer .button:hover {
+  background-color: #e67300; /* Laranja um pouco mais escuro */
+  box-shadow: 0 6px 15px rgba(255, 128, 0, 0.5);
+  transform: translateY(-3px); /* "Levanta" o botão */
+}
+
+
+@media only screen and (max-width: 560px) {
+  footer {
+    padding: 4.8125rem 15% 0 15%;
+  }
+}
+
+/* ---------------------------------- */
+/* 7. Correção (do seu original) */
+/* ---------------------------------- */
+.color .swatches h2 { /* Esta regra não existe no HTML, mas estava no seu CSS */
+  color: #9b9b9b;
+}

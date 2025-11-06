@@ -1,0 +1,166 @@
+/* --- Variáveis CSS (Melhor para manter a consistência) --- */
+:root {
+    --color-primary-text: #333; /* Texto principal mais escuro */
+    --color-secondary-text: #666; /* Texto secundário */
+    --color-price: #007bff; /* Azul vibrante para o preço */
+    --color-heading-dark: #2c3e50; /* Azul escuro para títulos */
+    --font-heading: 'Roboto', Helvetica, Arial, sans-serif; /* Nova fonte para títulos */
+    --font-body: 'Open Sans', Helvetica, Arial, sans-serif; /* Nova fonte para corpo */
+    --shadow-light: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    --border-radius-medium: 8px; /* Cantos arredondados */
+}
+
+/* --- Estilos Gerais --- */
+body {
+    font-family: var(--font-body);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6; /* Melhora a legibilidade do texto */
+    color: var(--color-primary-text);
+    background-color: #f4f7f6; /* Fundo geral mais suave */
+}
+
+/* Garante que o box model inclua padding e border no tamanho total */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 15px auto; /* Centraliza imagens */
+    border-radius: var(--border-radius-medium); /* Cantos arredondados nas imagens */
+    box-shadow: var(--shadow-light); /* Sombra sutil nas imagens */
+}
+
+/* --- Cabeçalho --- */
+header {
+    margin-bottom: 30px; /* Espaço após o cabeçalho */
+}
+
+h1 {
+    background-image: url("https://content.codecademy.com/courses/freelance-1/unit-2/pattern.jpeg");
+    background-size: cover; /* Garante que a imagem de fundo cubra a área */
+    background-position: center; /* Centraliza a imagem de fundo */
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: 80px; /* Um pouco menor para melhor responsividade */
+    font-weight: bold;
+    color: khaki; /* A cor original ainda funciona bem aqui */
+    padding: 40px 20px; /* Mais padding para um visual mais imponente */
+    margin: 0;
+    box-shadow: var(--shadow-light); /* Sombra para destacar o cabeçalho */
+}
+
+/* --- Seções de Produto --- */
+/* --- Seções de Produto --- */
+.product-section {
+    /* REMOVIDO: background-color, margin, border-radius, box-shadow, max-width */
+
+    padding: 30px 20px; /* Padding interno (30px em cima/baixo, 20px nas laterais) */
+    display: flex; /* Flexbox para melhor layout interno */
+    flex-direction: column; /* Itens um abaixo do outro por padrão */
+    align-items: center; /* Centraliza conteúdo na seção */
+    text-align: center; /* Centraliza o texto */
+    margin-bottom: 10px; /* Um pequeno espaço para separar os blocos de cor */
+}
+
+.product-section h2 {
+    font-family: var(--font-heading);
+    font-size: 38px; /* Aumenta o tamanho para destaque */
+    font-weight: bold;
+    color: var(--color-heading-dark); /* Cor de título mais sofisticada */
+    margin-bottom: 15px; /* Espaçamento abaixo do H2 */
+    padding-bottom: 10px; /* Linha de fundo para destaque */
+    border-bottom: 2px solid; /* A cor da borda será definida pelo item */
+    display: inline-block; /* Para a borda ter a largura do texto */
+}
+
+.product-section h3 {
+    font-family: var(--font-heading);
+    font-size: 28px; /* Aumenta o tamanho para destaque */
+    font-weight: 600; /* Um pouco menos negrito que o H2 */
+    color: var(--color-heading-dark);
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.product-section p {
+    font-size: 18px; /* Tamanho do parágrafo um pouco maior */
+    color: var(--color-secondary-text);
+    margin-bottom: 20px;
+    max-width: 600px; /* Limita a largura do parágrafo para legibilidade */
+}
+
+/* --- Estilos Específicos de Cada Produto --- */
+#brushes .product-section h2 {
+    color: mediumspringgreen; /* Aplica a cor ao h2 */
+    border-color: mediumspringgreen; /* E à borda */
+}
+#brushes { background-color: #e6ffe6; } /* Fundo da seção mais suave para "brushes" */
+
+
+#frames .product-section h2 {
+    color: lightcoral;
+    border-color: lightcoral;
+}
+#frames { background-color: #fff0f0; } /* Fundo da seção mais suave para "frames" */
+
+
+#paint .product-section h2 {
+    color: skyblue;
+    border-color: skyblue;
+}
+#paint { background-color: #e0f2ff; } /* Fundo da seção mais suave para "paint" */
+
+
+/* --- Preço --- */
+.price {
+    font-family: var(--font-heading);
+    font-weight: bold;
+    font-size: 20px; /* Aumenta o tamanho do preço */
+    color: var(--color-price);
+    display: block; /* Garante que o preço fique em uma linha própria */
+    margin-top: 15px;
+}
+
+/* --- Media Queries para Responsividade --- */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 60px; /* Reduz o tamanho do H1 em telas menores */
+        padding: 30px 15px;
+    }
+    .product-section {
+        margin: 15px auto;
+        padding: 20px;
+    }
+    .product-section h2 {
+        font-size: 30px;
+    }
+    .product-section h3 {
+        font-size: 22px;
+    }
+    .product-section p {
+        font-size: 16px;
+    }
+    .price {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 40px;
+        word-break: break-word; /* Ajuda a quebrar palavras longas em telas muito pequenas */
+    }
+    .product-section {
+        padding: 15px;
+    }
+    .product-section h2 {
+        font-size: 24px;
+    }
+    .product-section h3 {
+        font-size: 18px;
+    }
+}
